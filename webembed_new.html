@@ -1,0 +1,51 @@
+<div class="form-container lighthouse-box"> 
+   <p class="fs-big">Jetzt Formular ausfüllen und Download erhalten </p> 
+   <!-- PEGA START -->
+      <script src="https://c11n-prod-eu-central-1.constellation.cloud.pega.net/c11n/8.8.3-478/pega-embed.js"></script>
+<pega-embed id='theEmbed' action='createCase' caseTypeID='Haufe-LeadCapture-Work-WhitepaperDownload' casePage='simplifiedAssignment' assignmentHeader='false' appAlias='lead-capture' pegaServerUrl='https://chrhfv-hamark-dt1.pegacloud.net/prweb/' autoReauth='true' authService='pega' clientId='11572127492377064624' style='width:100%'>
+</pega-embed>
+
+   <script>
+   // Get cookie
+   var PegaID;
+   let name = "PegaID=";
+   let ca = document.cookie.split(';');
+   for(let i = 0; i < ca.length; i++) {
+     let c = ca[i];
+     while (c.charAt(0) == ' ') {
+       c = c.substring(1);
+     }
+     if (c.indexOf(name) == 0) {
+         PegaID = c.substring(name.length, c.length);
+     }
+   }
+   PegaID = '{"PegaIDCookie":"' + PegaID + '"}';
+     
+   // Function to handle the embed ready event
+   function handleEmbedReady() {
+     // Now that the embed is ready, add another listener for the embedprocessingend event
+     let elEmbedding = document.getElementById("theEmbed");
+   
+     // Set cookie
+     let PegaID = elEmbedding.getEmbedData(".PegaIDCookie");
+     const d = new Date();
+     d.setTime(d.getTime() + (365*24*60*60*1000));
+     document.cookie = "PegaID=" + PegaID + ";expires=" + d.toUTCString() + ";path=/";
+    
+     elEmbedding.addEventListener("embedprocessingend", function() {
+       // Redirect the user when the embedcloseconfirmview event is triggered
+       let RedirectURL = elEmbedding.getEmbedData(".RedirectURL");
+       window.location.href = RedirectURL;
+     });
+   }
+    
+   // Get the embed element by its ID
+   let elEmbedding = document.getElementById("theEmbed");
+   elEmbedding.setAttribute('startingFields', PegaID);
+   elEmbedding.load();
+    
+   // Add the listener for the embed ready event
+   elEmbedding.addEventListener("embedready", handleEmbedReady);
+   </script>
+   <!-- PEGA END -->
+  </div>
