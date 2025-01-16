@@ -1,0 +1,6 @@
+<script src='https://chrhfv-hamark-dt1.pegacloud.net/prweb/PRRestService/c11nsvc/v1/pega-embed.js'></script>
+<pega-embed id='theEmbed' action='createCase' caseTypeID='Haufe-LeadCapture-Work-WhitepaperDownload'
+    casePage='full' assignmentHeader='true' appAlias='lead-capture'
+    pegaServerUrl='https://chrhfv-hamark-dt1.pegacloud.net/prweb/' autoReauth='true' authService='pega'
+    clientId='17201711311832208485' style='width:100%'>
+</pega-embed>
