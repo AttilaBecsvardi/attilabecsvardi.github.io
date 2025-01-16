@@ -1,6 +1,73 @@
-<script src='https://chrhfv-hamark-dt1.pegacloud.net/prweb/PRRestService/c11nsvc/v1/pega-embed.js'></script>
-<pega-embed id='theEmbed' action='createCase' caseTypeID='Haufe-LeadCapture-Work-WhitepaperDownload'
-    casePage='simplifiedAssignment' assignmentHeader='false' appAlias='lead-capture'
-    pegaServerUrl='https://chrhfv-hamark-dt1.pegacloud.net/prweb/' autoReauth='true' authService='pega'
-    clientId='17201711311832208485' style='width:100%'>
-</pega-embed>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Button at the Bottom</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex: 1;
+            /* Push the footer to the bottom */
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <!-- Main content of the page -->
+        <script src='https://chrhfv-hamark-dt1.pegacloud.net/prweb/PRRestService/c11nsvc/v1/pega-embed.js'></script>
+        <pega-embed id='theEmbed' action='createCase' caseTypeID='Haufe-LeadCapture-Work-WhitepaperDownload'
+            casePage='simplifiedAssignment' assignmentHeader='false' appAlias='lead-capture'
+            pegaServerUrl='https://chrhfv-hamark-dt1.pegacloud.net/prweb/' autoReauth='true' authService='pega'
+            clientId='17201711311832208485' style='width:100%'>
+        </pega-embed>
+    </div>
+    <div class="footer">
+        <!-- Radio buttons at the bottom -->
+        <form id="radioForm">
+            <label>
+                <input type="radio" name="casePage" value="full"> full
+            </label>
+            <label>
+                <input type="radio" name="casePage" value="assignment"> assignment
+            </label>
+            <label>
+                <input type="radio" name="casePage" value="assignmentWithStages"> assignmentWithStages
+            </label>
+            <label>
+                <input type="radio" name="casePage" value="simplifiedAssignment"> simplifiedAssignment
+            </label>
+        </form>
+    </div>
+    <script>
+        // Get references to the elements
+        const pegaEmbed = document.getElementById('theEmbed');
+        const radioForm = document.getElementById('radioForm');
+
+        // Add event listener to the form for change events
+        radioForm.addEventListener('change', (event) => {
+            if (event.target.name === 'casePage') {
+                // Update the casePage attribute of the pega-embed element
+                pegaEmbed.setAttribute('casePage', event.target.value);
+                console.log(`Updated casePage to: ${event.target.value}`); // Debugging
+            }
+        });
+    </script>
+</body>
+
+</html>
