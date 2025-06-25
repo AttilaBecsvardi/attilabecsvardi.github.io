@@ -729,6 +729,9 @@ div[id^="pgl_container_"]{padding-top:0;margin-top:-5px}
       <div>
 	      <button onclick="injectVisitorId()">Inject visitorId</button>
 <script>
+  function myCallback() {
+	  console.log("myCallback");
+  }
   function injectVisitorId() {
     const visitorId = "abc123-test-value";
 
