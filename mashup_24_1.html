@@ -733,7 +733,10 @@ div[id^="pgl_container_"]{padding-top:0;margin-top:-5px}
     const visitorId = "abc123-test-value";
 
     // Inject visitorId into the Pega gadget
-    pega.web.api.doAction("PegaGadget", "setGadgetData", "pyWorkPage.VisitorID ", 'test 123 value', { callback: function (obj) { } });  	  
+    /*pega.web.api.doAction("PegaGadget", "setGadgetData", "pyWorkPage.VisitorID ", 'test 123 value', { callback: function (obj) { } });  */
+    pega.web.api.doAction("PegaGadget", "setGadgetData", "pyWorkPage.VisitorID", 'aaaaaaa', {
+		callback: myCallback
+	});	
 
     // Optionally refresh the assignment to reflect the updated data
 /*    pega.web.api.doAction("myMashupDiv", "refreshAssignment");*/
