@@ -726,7 +726,22 @@ div[id^="pgl_container_"]{padding-top:0;margin-top:-5px}
 		data-pega-event-onpagedata = 'dataFromPage'>
 	</div>
 <!-- ********************** End Pega generated content ********************** -->
-      
+      <div>
+	      <button onclick="injectVisitorId()">Inject visitorId</button>
+<script>
+  function injectVisitorId() {
+    const visitorId = "abc123-test-value";
+
+    // Inject visitorId into the Pega gadget
+    pega.web.api.doAction("PegaGadget", "setGadgetData", "VisitorID", visitorId);
+
+    // Optionally refresh the assignment to reflect the updated data
+/*    pega.web.api.doAction("myMashupDiv", "refreshAssignment");*/
+
+    console.log("visitorId injected:", visitorId);
+  }
+</script>
+      </div>
     <!--<script src ='https://chrhfv-hamark-dt1.pegacloud.net/prweb/PRAuth/TestAnonymous?pyActivity=pzIncludeMashupScripts'></script>
     <div data-pega-gadgetname ='PegaGadget' 
     data-pega-action ='createNewWork' 
